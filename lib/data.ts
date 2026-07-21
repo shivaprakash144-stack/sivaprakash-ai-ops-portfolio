@@ -39,7 +39,7 @@ export const profile = {
   resumeUrl: "/resume.pdf",
   photoUrl: "/profile.jpg",
   summary:
-    "AI Operations & Automation Leader with over 10 years of experience leading operational transformation, building AI-powered workflows, and improving business processes through automation, operational excellence, and Lean Six Sigma. I lead high-performing, cross-functional teams and combine people leadership with modern AI technologies to design scalable systems that eliminate repetitive manual work and improve how operations run day to day.",
+    "AI Operations & Automation Leader with over 10 years of experience leading high-performing operations, optimizing complex workflows, and delivering measurable business impact through AI, automation, process excellence, and team leadership. My work spans AI Operations, AI Automation, workflow transformation, team leadership, operational excellence, and Lean Six Sigma — combining people leadership with modern AI technologies to design scalable systems that eliminate repetitive manual work.",
 };
 
 // Why Hire Me — three capability pillars. Deliberately metric-free; the
@@ -217,92 +217,81 @@ export const growthPath = [
 ];
 
 // ---------------------------------------------------------------------------
-// Projects / Case Studies — every project below is expanded from a real
+// Projects — every project below is expanded from a real
 // resume bullet, with Overview / Problem / Approach / Impact / Tools.
 // The AI HOA Document Analyzer is the one project supplied directly by the
 // candidate as additional real work, not itemized as its own bullet on the
 // resume — flagged via `sourceNote`.
 // ---------------------------------------------------------------------------
-export type CaseStudy = {
+export type Project = {
   id: string;
   index: string;
   title: string;
   category: string;
-  overview: string;
+  label: string;
   problem: string;
-  approach: string[];
-  architecture: string[]; // rendered as a flow diagram: node labels in sequence
+  myRole: string;
+  built: string[];
   impact: { label: string; value: string }[];
   tools: string[];
-  lessonsLearned: string;
-  futureEnhancements: string;
+  architecture: string[]; // rendered as a flow diagram: node labels in sequence
+  additionalDetails?: {
+    lessonsLearned: string;
+    futureEnhancements: string;
+  };
   sourceNote?: string;
 };
 
-export const caseStudies: CaseStudy[] = [
+export const projects: Project[] = [
   {
-    id: "process-handbook",
+    id: "hoa-analyzer",
     index: "01",
-    title: "Process Handbook & Scope Checklist",
-    category: "Knowledge Systems",
-    overview:
-      "A single source of truth for the team, replacing dozens of scattered references.",
+    title: "AI HOA Document Analyzer",
+    category: "AI & Automation",
+    label: "My Project | AI & Automation",
     problem:
-      "Market-specific process references, repair-cost data, and update logs were scattered across multiple documents. Every case meant hunting for the right source of truth, and missed line items cost quality points.",
-    approach: [
-      "Audited every existing reference doc, repair-cost sheet, and update log in use across the market.",
-      "Consolidated them into one Process Handbook with a consistent structure.",
-      "Added a scope checklist so no line item gets missed on a case.",
-      "Rolled it out to the full 15-person team with a walkthrough and adoption tracking.",
+      "Manual HOA document review required approximately 40 minutes per document, creating opportunities to reduce repetitive manual analysis and improve processing efficiency.",
+    myRole:
+      "Designed and implemented an AI-assisted document analysis workflow to accelerate first-pass review while maintaining human-in-the-loop validation.",
+    built: [
+      "AI-assisted document analysis",
+      "Prompt-based clause identification",
+      "Relevant clause extraction",
+      "AI-assisted first-pass review",
+      "Human-in-the-loop validation",
+      "Results tracking for quality comparison",
     ],
-    architecture: ["Scattered Docs", "Audit & Consolidate", "Process Handbook", "Scope Checklist", "Team Adoption"],
+    architecture: ["HOA Document", "GPT / Claude First Pass", "Flagged Clauses", "Human Review", "Google Sheets Log"],
     impact: [
-      { label: "Quality score", value: "92% → 96%" },
-      { label: "Process queries", value: "−60%" },
+      { label: "Review time", value: "40 min → 20 min" },
+      { label: "Review time reduction", value: "50%" },
+      { label: "Agreement with human reviewers", value: "80%" },
     ],
-    tools: ["Confluence", "SOP Design", "Documentation Standards"],
-    lessonsLearned:
-      "A handbook only works if it replaces the old references entirely — keeping both in circulation just splits the confusion in two.",
-    futureEnhancements:
-      "Version-control the handbook and pipe update-log changes into it automatically, so it never drifts out of date again.",
-  },
-  {
-    id: "sla-optimization",
-    index: "02",
-    title: "Due-Date Case Claiming & SLA Recovery",
-    category: "Workflow Redesign",
-    overview:
-      "A redesign of how the team claims work — from reactive to proactive.",
-    problem:
-      "The team pulled Zendesk tickets in arrival order, so deadlines slipped quietly behind whatever came in first. SLA compliance hovered around an 89% trend.",
-    approach: [
-      "Mapped how cases actually aged in the queue versus their real due dates.",
-      "Redesigned the claiming logic so team members claim by due date, not arrival order.",
-      "Built in proactive follow-ups that trigger ahead of the deadline instead of after it.",
-      "Monitored the shift for several cycles before locking it in as standard practice.",
-    ],
-    architecture: ["Ticket Queue", "Due-Date Ranking", "Proactive Follow-Up", "SLA Monitor"],
-    impact: [{ label: "SLA compliance", value: "89% trend → 98%+" }],
-    tools: ["Zendesk", "Queue Redesign", "SLA Monitoring"],
-    lessonsLearned:
-      "The queue logic mattered more than individual effort — the team wasn't underperforming, the queue was pointing them at the wrong case first.",
-    futureEnhancements:
-      "Add automatic re-ranking as due dates shift, so the queue stays accurate without a manual recheck.",
+    tools: ["Claude AI", "OpenAI GPT", "Prompt Engineering", "Google Sheets"],
+    additionalDetails: {
+      lessonsLearned:
+        "80% agreement with human reviewers was good enough to cut review time in half, but not good enough to remove the human — the model is a first pass, not a final decision.",
+      futureEnhancements:
+        "Track disagreement cases specifically to see if a pattern emerges that the prompt can be tuned against.",
+    },
+    sourceNote:
+      "Supplied directly by the candidate as additional real project work.",
   },
   {
     id: "ai-workflow-automation",
-    index: "03",
+    index: "02",
     title: "AI-Assisted Documentation & Reporting",
     category: "AI & Automation",
-    overview:
-      "Wiring Claude AI and ChatGPT directly into the recurring work that used to eat the team's time.",
+    label: "My Project | AI & Automation",
     problem:
-      "Recurring documentation and reporting tasks were done by hand every cycle — not one big problem, but a steady drain that showed up in Average Handle Time.",
-    approach: [
-      "Identified which recurring documentation and reporting tasks were the most repetitive and time-consuming.",
-      "Built AI-assisted workflows with Claude AI and ChatGPT to handle the recurring load.",
-      "Kept a human review step for anything customer-facing or escalation-sensitive.",
-      "Measured AHT and hours saved across the team before and after rollout.",
+      "Manual documentation and reporting workflows required significant operational effort and created opportunities for process standardization and automation.",
+    myRole:
+      "Designed AI-assisted workflows and standardized documentation processes to reduce manual effort and improve operational efficiency.",
+    built: [
+      "Identified the most repetitive, time-consuming documentation and reporting tasks",
+      "Built AI-assisted workflows with Claude AI and ChatGPT to handle the recurring load",
+      "Kept a human review step for anything customer-facing or escalation-sensitive",
+      "Measured AHT and hours saved across the team before and after rollout",
     ],
     architecture: ["Raw Case Data", "Claude / ChatGPT Draft", "Human Review", "Final Report"],
     impact: [
@@ -310,90 +299,128 @@ export const caseStudies: CaseStudy[] = [
       { label: "Hours saved / month", value: "200+" },
     ],
     tools: ["Claude AI", "ChatGPT (GPT-4)", "Documentation", "Reporting"],
-    lessonsLearned:
-      "AI drafts got adopted fastest where the human review step was kept short and clearly scoped — a vague 'check this' step killed adoption.",
-    futureEnhancements:
-      "Extend the same drafting pattern to weekly team reporting, not just per-case documentation.",
+    additionalDetails: {
+      lessonsLearned:
+        "AI drafts got adopted fastest where the human review step was kept short and clearly scoped — a vague 'check this' step killed adoption.",
+      futureEnhancements:
+        "Extend the same drafting pattern to weekly team reporting, not just per-case documentation.",
+    },
   },
   {
-    id: "sipoc-designer",
-    index: "04",
-    title: "SIPOC Diagrams & Onboarding Maps",
-    category: "Process Mapping",
-    overview:
-      "Standardized process maps that replaced shadow-and-learn onboarding.",
+    id: "sla-recovery",
+    index: "03",
+    title: "Workflow Redesign & SLA Recovery",
+    category: "Process Transformation",
+    label: "My Project | Process Transformation",
     problem:
-      "New hires learned the process by shadowing — slow, inconsistent, and dependent on whichever teammate happened to be free.",
-    approach: [
-      "Built SIPOC diagrams and process flow charts for the core workflows.",
-      "Standardized the format so it could be reused across teams, not just one.",
-      "Adopted the diagrams as default onboarding material for new hires.",
+      "Operational workflows required improvement to consistently meet SLA expectations.",
+    myRole:
+      "Led workflow redesign, operational follow-ups, process improvements, and team execution to improve SLA performance.",
+    built: [
+      "Mapped how cases actually aged in the queue versus their real due dates",
+      "Redesigned the claiming logic so team members claim by due date, not arrival order",
+      "Built in proactive follow-ups that trigger ahead of the deadline instead of after it",
+      "Monitored the shift for several cycles before locking it in as standard practice",
+    ],
+    architecture: ["Ticket Queue", "Due-Date Ranking", "Proactive Follow-Up", "SLA Monitor"],
+    impact: [{ label: "SLA compliance", value: "89% → 98%+" }],
+    tools: ["Zendesk", "Queue Redesign", "SLA Monitoring"],
+    additionalDetails: {
+      lessonsLearned:
+        "The queue logic mattered more than individual effort — the team wasn't underperforming, the queue was pointing them at the wrong case first.",
+      futureEnhancements:
+        "Add automatic re-ranking as due dates shift, so the queue stays accurate without a manual recheck.",
+    },
+  },
+  {
+    id: "process-handbook",
+    index: "04",
+    title: "Process Handbook & Scope Checklist",
+    category: "Operational Excellence",
+    label: "My Project | Operational Excellence",
+    problem:
+      "Teams needed clearer process documentation and standardized guidance to reduce process-related queries and improve consistency.",
+    myRole:
+      "Created a consolidated process handbook and scope checklist to standardize market-specific process knowledge and improve team execution.",
+    built: [
+      "Audited every existing reference doc, repair-cost sheet, and update log in use across the market",
+      "Consolidated them into one Process Handbook with a consistent structure",
+      "Added a scope checklist so no line item gets missed on a case",
+      "Rolled it out to the full team with a walkthrough and adoption tracking",
+    ],
+    architecture: ["Scattered Docs", "Audit & Consolidate", "Process Handbook", "Scope Checklist", "Team Adoption"],
+    impact: [
+      { label: "Quality improvement", value: "92% → 96%" },
+      { label: "Reduction in process queries", value: "60%" },
+    ],
+    tools: ["Confluence", "SOP Design", "Documentation Standards"],
+    additionalDetails: {
+      lessonsLearned:
+        "A handbook only works if it replaces the old references entirely — keeping both in circulation just splits the confusion in two.",
+      futureEnhancements:
+        "Version-control the handbook and pipe update-log changes into it automatically, so it never drifts out of date again.",
+    },
+  },
+  {
+    id: "sipoc-onboarding",
+    index: "05",
+    title: "SIPOC & Onboarding Process Maps",
+    category: "Process Excellence",
+    label: "My Project | Process Excellence",
+    problem:
+      "New team members required structured process understanding and faster ramp-up.",
+    myRole:
+      "Created SIPOC diagrams, process maps, and onboarding documentation to simplify complex operational workflows.",
+    built: [
+      "Built SIPOC diagrams and process flow charts for the core workflows",
+      "Standardized the format so it could be reused across teams, not just one",
+      "Adopted the diagrams as default onboarding material for new hires",
     ],
     architecture: ["Core Workflow", "SIPOC Mapping", "Standardized Template", "Onboarding Material"],
     impact: [
-      { label: "New-hire ramp time", value: "−40%" },
-      { label: "Teams adopted", value: "3" },
+      { label: "Reduction in new-hire ramp time", value: "40%" },
+      { label: "Adopted by", value: "3 Teams" },
     ],
     tools: ["Process Maps", "Training", "Onboarding"],
-    lessonsLearned:
-      "A SIPOC diagram only speeds up onboarding if it's paired with a real walkthrough — handing over a diagram cold still left gaps.",
-    futureEnhancements:
-      "Build a short video walkthrough per diagram so onboarding scales without needing a live trainer every time.",
+    additionalDetails: {
+      lessonsLearned:
+        "A SIPOC diagram only speeds up onboarding if it's paired with a real walkthrough — handing over a diagram cold still left gaps.",
+      futureEnhancements:
+        "Build a short video walkthrough per diagram so onboarding scales without needing a live trainer every time.",
+    },
   },
   {
     id: "property-risk-evaluation",
-    index: "05",
+    index: "06",
     title: "Property Evaluation & Risk Escalation",
-    category: "Risk & Quality Assurance",
-    overview:
-      "High-accuracy virtual property evaluation with an active risk-escalation layer.",
+    category: "Quality & Risk Management",
+    label: "My Project | Quality & Risk Management",
     problem:
-      "Repair estimates need to be scoped accurately ahead of pricing — an inaccurate estimate either overpays on a home or misses a real defect.",
-    approach: [
-      "Virtually evaluated 500+ properties and scoped repair estimates ahead of pricing.",
-      "Held accuracy to 99% through consistent evaluation criteria.",
-      "Escalated major red flags on properties that carried outsized risk.",
+      "Property evaluation and risk identification required consistent analysis and escalation.",
+    myRole:
+      "Led property evaluation workflows and established structured risk escalation practices.",
+    built: [
+      "Virtually evaluated 500+ properties and scoped repair estimates ahead of pricing",
+      "Held accuracy to a consistent standard through repeatable evaluation criteria",
+      "Escalated major red flags on properties that carried outsized risk",
     ],
     architecture: ["Property Data", "Virtual Evaluation", "Repair Scoping", "Risk Escalation", "Pricing"],
     impact: [
       { label: "Properties evaluated", value: "500+" },
       { label: "Accuracy", value: "99%" },
-      { label: "Portfolio risk exposure", value: "−15%" },
+      { label: "Reduction in risk exposure", value: "15%" },
     ],
     tools: ["Property Evaluation", "Risk Escalation", "Root Cause Analysis"],
-    lessonsLearned:
-      "Consistency in evaluation criteria mattered more than speed — the accuracy rate held up specifically because the criteria didn't drift case to case.",
-    futureEnhancements:
-      "Layer in an AI-assisted first pass on property photos to pre-flag likely red flags before manual review.",
-  },
-  {
-    id: "hoa-analyzer",
-    index: "06",
-    title: "AI HOA Document Analyzer",
-    category: "AI Document Automation",
-    overview:
-      "An AI-assisted first pass on HOA (Homeowners Association) governing documents.",
-    problem:
-      "HOA document review is long-form and repetitive — a full manual read to find the clauses that actually affect a deal took around 40 minutes per document.",
-    approach: [
-      "Used GPT and Claude to produce a first-pass read of each HOA document.",
-      "Surfaced the clauses most relevant to deal risk for human review.",
-      "Logged results to Google Sheets for tracking and quality comparison against manual review.",
-    ],
-    architecture: ["HOA Document", "GPT / Claude First Pass", "Flagged Clauses", "Human Review", "Google Sheets Log"],
-    impact: [
-      { label: "Review time", value: "40 min → 20 min" },
-      { label: "Agreement with human reviewers", value: "80%" },
-    ],
-    tools: ["GPT", "Claude", "Automation", "Google Sheets"],
-    lessonsLearned:
-      "80% agreement with human reviewers was good enough to cut review time in half, but not good enough to remove the human — the model is a first pass, not a final decision.",
-    futureEnhancements:
-      "Track disagreement cases specifically to see if a pattern emerges that the prompt can be tuned against.",
-    sourceNote:
-      "Supplied directly by the candidate as additional real project work.",
+    additionalDetails: {
+      lessonsLearned:
+        "Consistency in evaluation criteria mattered more than speed — the accuracy rate held up specifically because the criteria didn't drift case to case.",
+      futureEnhancements:
+        "Layer in an AI-assisted first pass on property photos to pre-flag likely red flags before manual review.",
+    },
   },
 ];
+
+
 
 // ---------------------------------------------------------------------------
 // Workflow visuals — purely presentational stage sequences for the
@@ -550,13 +577,12 @@ export const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
   { href: "#why-hire-me", label: "Why Hire Me" },
-  { href: "#case-studies", label: "Case Studies" },
-  { href: "#automation", label: "AI Portfolio" },
-  { href: "#impact", label: "Business Impact" },
+  { href: "#projects", label: "Projects" },
+  { href: "#impact", label: "Measurable Business Impact" },
   { href: "#experience", label: "Experience" },
   { href: "#achievements", label: "Achievements" },
   { href: "#skills", label: "Skills" },
-  { href: "#certifications", label: "Certifications" },
+  { href: "#certifications", label: "Education & Certifications" },
   { href: "#contact", label: "Contact" },
 ];
 

@@ -78,8 +78,8 @@ export function Hero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-9 flex flex-wrap items-center gap-3"
           >
-            <a href="#case-studies" className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
-              View Case Studies
+            <a href="#projects" className={cn(buttonVariants({ variant: "primary", size: "lg" }))}>
+              View Projects
               <ArrowRight className="h-4 w-4" />
             </a>
             <a
@@ -145,7 +145,7 @@ export function Hero() {
           >
             <div className="flex items-center justify-between">
               <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
-                Live Ops Pulse
+                Operational Impact Snapshot
               </span>
               <Activity className="h-4 w-4 text-accent" />
             </div>

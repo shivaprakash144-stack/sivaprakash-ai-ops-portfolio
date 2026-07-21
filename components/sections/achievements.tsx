@@ -15,7 +15,7 @@ export function Achievements() {
         <SectionHeading
           eyebrow="Achievements"
           title="Recognition, exactly as awarded"
-          description="Six awards from nine years on the floor and leading teams — no embellishment, just what's on record."
+          description="Six awards from over 10 years on the floor and leading teams — no embellishment, just what's on record."
         />
 
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

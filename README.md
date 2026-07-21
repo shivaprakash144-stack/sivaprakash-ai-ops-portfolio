@@ -67,30 +67,39 @@ components/
     navbar.tsx         Glass sticky nav, active-section highlighting, mobile menu
     footer.tsx         Socials + "Built with Next.js and AI" tagline
   sections/
-    hero.tsx           Rotating headline, CTAs, animated metrics, process flow, floating dashboard
-    about.tsx          Summary + recruiter "why hire me" block + quick facts
+    hero.tsx           Headline, name, CTAs, animated metrics, process flow, floating dashboard
+    about.tsx          Narrative summary + quick facts (no metrics)
+    why-recruiters.tsx Why Hire Me — 3 capability pillars, no metrics
+    projects.tsx       Projects & Impact — Problem/My Role/What I Built/Impact,
+                        with Architecture + Lessons Learned + Future Enhancements
+                        tucked into an "Additional Details" expandable section
+    automation-gallery.tsx  AI Automation Portfolio — workflow pipelines + ecosystem grid
+    measurable-impact.tsx   The ONE consolidated results section (max 6 metrics)
     experience.tsx     Growth-path strip + accurate 2-role vertical timeline (resume-exact)
-    dashboard.tsx       Executive KPI Dashboard — bar/radial charts on real metrics
-    case-studies.tsx    Consulting-grade case studies: Problem/Solution/Architecture/
-                         Impact/Lessons Learned/Future Enhancements
-    automation-gallery.tsx  AI & Automation Ecosystem grid (resume-verified badges)
+                        + Team Leadership ecosystem visual
     achievements.tsx    Luxury award cards (resume-exact) + additional highlights
     skills.tsx          Skills grouped by category as animated chips
     certifications.tsx  Certs + education + languages
-    contact.tsx         CTA + contact channels
+    contact.tsx         CTA + contact channels (email, phone, LinkedIn, GitHub, resume)
   ui/                  shadcn-style primitives (button, badge, card, section-heading)
   effects/             particle-background, scroll-progress, animated-counter,
                         scroll-reveal, glow-card, radial-gauge, bar-compare,
-                        architecture-flow
+                        architecture-flow, ai-network-background, workflow-pipeline,
+                        ecosystem-hub, voice-over-control, voice-over-prompt
+  providers/
+    voice-over-provider.tsx  Audio playback state + IntersectionObserver trigger
 
 lib/
   data.ts              Single source of truth for all content — resume-verified facts
                         are explicitly commented as such; anything not resume-sourced
-                        is flagged (e.g. `sourceNote` on the HOA case study)
+                        is flagged (e.g. `sourceNote` on the HOA project). Each metric
+                        has one documented "primary location" to avoid repetition.
   utils.ts             cn() className merge helper
 
 public/
   resume.pdf           Wired to every "Download Resume" button
+  profile.jpg          Hero profile photo
+  audio/about-introduction.mp3  Voice-over narration for the About section
 ```
 
 ## Editing content

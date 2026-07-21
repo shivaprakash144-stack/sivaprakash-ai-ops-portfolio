@@ -1,7 +1,7 @@
 import { Hero } from "@/components/sections/hero";
 import { About } from "@/components/sections/about";
 import { WhyRecruiters } from "@/components/sections/why-recruiters";
-import { CaseStudies } from "@/components/sections/case-studies";
+import { Projects } from "@/components/sections/projects";
 import { AutomationGallery } from "@/components/sections/automation-gallery";
 import { MeasurableImpact } from "@/components/sections/measurable-impact";
 import { Experience } from "@/components/sections/experience";
@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
       <About />
       <WhyRecruiters />
-      <CaseStudies />
+      <Projects />
       <AutomationGallery />
       <MeasurableImpact />
       <Experience />

@@ -12,7 +12,7 @@ export function Experience() {
       <div className="mx-auto max-w-4xl px-6">
         <SectionHeading
           eyebrow="Experience"
-          title="Two companies, nine years, one throughline"
+          title="Two companies, over 10 years, one throughline"
           description="Own the queue. Find what's broken underneath it. Fix the system, not just the symptom."
           align="center"
         />
